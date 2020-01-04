@@ -1,0 +1,11 @@
+---
+version: '3'
+
+services:
+  nginx-autoindex:
+    container_name: nginx-autoindex
+    image: dceoy/nginx-autoindex:latest
+    ports:
+      - 80:80
+    volumes:
+      - ${PWD}/docs:/var/lib/nginx/html:ro
