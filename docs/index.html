@@ -8,26 +8,86 @@
     <meta name="keywords" content="Medicine,Healthcare">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/materia/bootstrap.min.css">
+    <style>
+      body {
+        padding-top: 8em;
+      }
+      .row {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      .col-lg-12, .col-lg-6 {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+    </style>
     <!-- <meta name="google-site-verification" content="" /> -->
   </head>
   <body>
-    <div>
-      <div class="uk-section">
-        <div class="uk-container">
-          <h1 class="uk-heading-line">
-            <span>Medical and Healthcare Search</span>
-          </h1>
-          <p>This site is under development.</p>
-          <form class="uk-search uk-search-large" method=get action="http://www.google.co.jp/search">
-            <span uk-search-icon></span>
-            <input class="uk-search-input" type="search" placeholder="Search for...">
-          </form>
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div class="container">
+        <a href="#" class="navbar-brand">mahq</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><!----></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="//github.com/dceoy/mahq">GitHub</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="languages" aria-expanded="false">Languages <span class="caret"><!----></span></a>
+              <div class="dropdown-menu" aria-labelledby="languages">
+                <a class="dropdown-item" href="#">English</a>
+                <a class="dropdown-item" href="#">日本語</a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script>
+      $(function() {
+        $('form').on('submit', function() {
+          let $iq = $(this).find('input[name="q"]');
+          const query = $iq.val();
+          if (query && ! query.includes('site:')) {
+            $iq.val(query + ' site:msdmanuals.com');
+          };
+        });
+      });
+    </script>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Medical and Healthcare Search</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>Input</h2>
+          <form method="get" action="//www.google.com/search">
+            <fieldset>
+              <div class="form-group">
+                <input type="hidden" name="hl" value="ja">
+                <input type="textbox" class="form-control" name="q" placeholder="Search for...">
+              </div>
+              <button type="submit" class="btn btn-primary">SEARCH</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="col-lg-6">
+          <h2>About</h2>
+          <p>This site is under development.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </body>
 </html>
