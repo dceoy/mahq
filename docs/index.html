@@ -57,8 +57,11 @@
         $('form').on('submit', function() {
           let $iq = $(this).find('input[name="q"]');
           const query = $iq.val();
+          const sites = [
+            '.gov', '.go.jp', '.edu', '.ac.jp', 'msdmanuals.com', 'genome.jp'
+          ]
           if (query && ! query.includes('site:')) {
-            $iq.val(query + ' site:msdmanuals.com');
+            $iq.val(query + ' site:' + sites.join(' OR site:'));
           };
         });
         $('input[name="q"]').on('click', function() {
