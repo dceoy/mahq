@@ -8,4 +8,4 @@ services:
     ports:
       - 80:80
     volumes:
-      - ${PWD}/docs:/var/lib/nginx/html:ro
+      - ${PWD}/html:/var/lib/nginx/html:ro

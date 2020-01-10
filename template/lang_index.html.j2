@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mahq: {{ short_description }}</title>
+    <meta name="author" content="{{ author }}"/>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/materia/bootstrap.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27914660-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-27914660-6');
+    </script>
+    <style>
+      body {
+        padding-top: 6em;
+      }
+      .row {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      .col-lg-12, .col-lg-6 {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div class="container">
+        <a href="#home" class="navbar-brand">Mahq</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <span class="mr-auto"></span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">{{ about_h2 }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#developer">{{ developer_h2 }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#license">{{ license_h2 }}</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="languages" aria-expanded="false">{{ {'en': 'English', 'ja': '日本語'}[lang] }} <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="languages">
+                <a class="dropdown-item" href="../en">English</a>
+                <a class="dropdown-item" href="../ja">日本語</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script>
+      $(function() {
+        $('form').on('submit', function() {
+          let $iq = $(this).find('input[name="q"]');
+          const query = $iq.val();
+          const site_array = {{ site_array_string }};
+          if (query && ! query.includes('site:')) {
+            $iq.val(query + ' site:' + site_array.join(' OR site:'));
+          };
+        });
+        $('input[name="q"]').on('click', function() {
+          $(this).val('');
+        });
+      });
+    </script>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id="home">
+          <h1>{{ short_description }}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <form method="get" action="//www.google.com/search">
+            <fieldset>
+              <div class="form-group">
+                <input type="textbox" class="form-control" name="q" placeholder="Search for...">
+              </div>
+              <div class="form-group">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" class="custom-control-input" id="customRadio1" name="hl" value="{{ lang }}" checked="">
+                  <label class="custom-control-label" for="customRadio1">{{ {'en': 'English', 'ja': '日本語'}[lang] }}</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" class="custom-control-input" id="customRadio2" name="hl" value="{{ {'en': 'ja', 'ja': 'en'}[lang] }}">
+                  <label class="custom-control-label" for="customRadio2">{{ {'en': '日本語', 'ja': 'English'}[lang] }}</label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">{{ search_button }}</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="col-lg-12">
+          <h2 id="about">{{ about_h2 }}</h2>
+          <p><b>Mahq</b>: <b>M</b>edical <b>a</b>nd <b>h</b>ealthcare <b>q</b>ueries</p>
+          <p>{{ about_p[0] }}</p>
+          <p>{{ about_p[1] }}</p>
+        </div>
+        <div class="col-lg-6">
+          <h2 id="developer">{{ developer_h2 }}</h2>
+          <p>{{ developer_p[0] }}</p>
+        </div>
+        <div class="col-lg-6">
+          <h2 id="license">{{ license_h2 }}</h2>
+          <p>{{ license_p[0] }}</p>
+          <p><a href="//github.com/dceoy/mahq">github.com/dceoy/mahq</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
