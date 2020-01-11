@@ -4,31 +4,34 @@ en:
   short_description: Medical and Healthcare Web Search
   description: Web Search Form for Medical and Healthcare Queries
   author: Daichi Narushima
-  keywords: medicine,healthcare,search
+  keywords: medicine,pharmacy,healthcare,health,wellness,clinical,treatment,pharmaceutical,drug,remedy,disease,symptom,illuness,web,Google,search
   search_placeholder: Enter a search word...
   search_button: SEARCH
   about_h2: About Mahq
   about_p:
     - Mahq is a web search form for obtaining reliable medical and health information using Google.
-    - The search domains are managed by whitelist.
+    - When searching for medical information such as symptoms, illnesses, and pharmaceuticals, non-scientific information is often introduced into search results.
+      Mahq suppresses such search noise by having a whitelist of search target domains, and improves the quality of information search.
   developer_h2: Developer
   developer_p:
     - Daichi Narushima, Ph.D.
   license_h2: License
   license_p:
     - The source code of Mahq is licensed under <a href="//github.com/dceoy/mahq/blob/master/LICENSE">GNU General Public License v3.0</a>.
+
 ja:
   lang: ja
   short_description: 医療情報 Web 検索
-  description: 医薬学・医療・健康情報 Web 検索フォーム
+  description: 医療・健康に関する信頼性の高い情報を得るための web 検索フォーム
   author: Daichi Narushima
-  keywords: 医学,薬学,用語,検索
+  keywords: 医学,薬学,医薬学,医療,健康,臨床,治療,医薬品,薬,ワクチン,疾患,症状,症候,病気,Web,Google,検索
   search_placeholder: 検索する単語を入力...
   search_button: 検索
   about_h2: Mahq について
   about_p:
-    - Mahq は Google を用いて医薬学・医療・健康に関する信頼性の高い情報を得るための web 検索フォームです.
-    - 検索対象ドメインはホワイトリストで管理されています.
+    - Mahq は Google を用いて医療・健康に関する信頼性の高い情報を得るための web 検索フォームです.
+    - 症状や疾患, 医薬品といった医療情報の検索では, 非科学的な情報の検索結果への混入 (検索ノイズ) がしばしば問題になります.
+      Mahq は, 検索対象ドメインのホワイトリストを持つことによって, そのような検索ノイズを抑制し, 情報検索の質を向上させます.
   developer_h2: 開発者
   developer_p:
     - 成島 大智, 博士 (薬科学)
