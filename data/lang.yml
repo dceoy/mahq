@@ -18,10 +18,9 @@ en:
   license_h2: License
   license_p:
     - The source code of Mahq is licensed under <a href="//github.com/dceoy/mahq/blob/master/LICENSE">GNU General Public License v3.0</a>.
-
 ja:
   lang: ja
-  short_description: 医療情報 Web 検索
+  short_description: 医療・健康情報 web 検索
   description: 医療・健康に関する信頼性の高い情報を得るための web 検索フォーム
   author: Daichi Narushima
   keywords: 医学,薬学,医薬学,医療,健康,臨床,治療,医薬品,薬,ワクチン,疾患,症状,症候,病気,Web,Google,検索
@@ -31,7 +30,7 @@ ja:
   about_p:
     - Mahq は Google を用いて医療・健康に関する信頼性の高い情報を得るための web 検索フォームです.
     - 症状や疾患, 医薬品といった医療情報の検索では, 非科学的な情報の検索結果への混入 (検索ノイズ) がしばしば問題になります.
-      Mahq は, 検索対象ドメインのホワイトリストを持つことによって, そのような検索ノイズを抑制し, 情報検索の質を向上させます.
+      Mahq は, 検索対象ドメインのホワイトリストを持つことによってそのようなノイズを抑制し, 情報検索の質を向上させます.
   developer_h2: 開発者
   developer_p:
     - 成島 大智, 博士 (薬科学)
