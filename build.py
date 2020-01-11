@@ -22,11 +22,13 @@ def main(root_path='html', version='v0.0.1'):
     favicon_path = data_dir.joinpath('favicon.ico')
     lang_data = read_yml(path=str(data_dir.joinpath('lang.yml')))
     logger.debug('lang_data:\t{}'.format(lang_data))
+    df_wl = pd.read_csv(
+        str(data_dir.joinpath('whitelist.csv')), index_col='site'
+    )
+    assert df_wl.index.size == df_wl.index.unique().size, 'duplicated sites'
     wl_dict = {
         k: v[v.astype(bool)].index.str.replace(' ', '').to_list()
-        for k, v in pd.read_csv(
-            str(data_dir.joinpath('whitelist.csv')), index_col='site'
-        ).items()
+        for k, v in df_wl.items()
     }
     logger.debug('wl_dict:\t{}'.format(wl_dict))
 
