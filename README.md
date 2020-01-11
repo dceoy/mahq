@@ -7,6 +7,13 @@ Build
 -----
 
 ```sh
-$ pip install -U jinja2 pandas yaml
-$ python build.py
+$ pip install -U jinja2 pandas pyyaml
+$ ./build.py
+```
+
+Deploy
+------
+
+```sh
+$ ./deploy.sh
 ```
