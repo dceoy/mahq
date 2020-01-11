@@ -21,13 +21,17 @@
       body {
         padding-top: 6em;
       }
+      h1, h2 {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+      }
       .row {
         margin-top: 2em;
         margin-bottom: 2em;
       }
       .col-lg-12, .col-lg-6 {
-        margin-top: 2em;
-        margin-bottom: 2em;
+        margin-top: 1em;
+        margin-bottom: 1em;
       }
     </style>
   </head>
@@ -64,17 +68,24 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script>
+      'use strict';
+      const site_dict = {{ site_dict_string }};
+      let hl = '{{ lang }}';
       $(function() {
-        $('form').on('submit', function() {
-          let $iq = $(this).find('input[name="q"]');
-          const query = $iq.val();
-          const site_array = {{ site_array_string }};
-          if (query && ! query.includes('site:')) {
-            $iq.val(query + ' site:' + site_array.join(' OR site:'));
-          };
-        });
         $('input[name="q"]').on('click', function() {
           $(this).val('');
+        });
+        $('input[name="hl"]').on('click', function() {
+          hl = $(this).val();
+        });
+        $('form').on('submit', function() {
+          let $input_q = $(this).find('input[name="q"]');
+          const query = $input_q.val();
+          if (! query) {
+          } else
+          if (query && ! query.includes('site:')) {
+            $input_q.val(query + ' site:' + site_dict[hl].join(' OR site:'));
+          };
         });
       });
     </script>
@@ -90,7 +101,7 @@
           <form method="get" action="//www.google.com/search">
             <fieldset>
               <div class="form-group">
-                <input type="textbox" class="form-control" name="q" placeholder="Search for...">
+                <input type="textbox" class="form-control" name="q" placeholder="{{ search_placeholder }}" required>
               </div>
               <div class="form-group">
                 <div class="custom-control custom-radio custom-control-inline">
@@ -99,7 +110,7 @@
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" class="custom-control-input" id="customRadio2" name="hl" value="{{ {'en': 'ja', 'ja': 'en'}[lang] }}">
-                  <label class="custom-control-label" for="customRadio2">{{ {'en': '日本語', 'ja': 'English'}[lang] }}</label>
+                  <label class="custom-control-label" for="customRadio2">{{ {'en': 'Japanese', 'ja': '英語'}[lang] }}</label>
                 </div>
               </div>
               <button type="submit" class="btn btn-primary">{{ search_button }}</button>
@@ -115,6 +126,7 @@
         <div class="col-lg-6">
           <h2 id="developer">{{ developer_h2 }}</h2>
           <p>{{ developer_p[0] }}</p>
+          <p><a href="//dceoy.github.io/">dceoy.github.io</a></p>
         </div>
         <div class="col-lg-6">
           <h2 id="license">{{ license_h2 }}</h2>

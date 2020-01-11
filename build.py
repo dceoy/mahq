@@ -5,7 +5,6 @@ import logging
 import os
 import shutil
 from pathlib import Path
-from pprint import pformat
 
 import pandas as pd
 import yaml
@@ -16,7 +15,7 @@ def main(root_path='html', version='v0.0.1'):
     args = parse_options(version=version)
     set_log_config(args=args)
     logger = logging.getLogger(__name__)
-    logger.debug('args:{0}{1}'.format(os.linesep, pformat(vars(args))))
+    logger.debug('args:{0}{1}'.format(os.linesep, vars(args)))
 
     root_dir = Path(root_path)
     data_dir = Path(__file__).parent.joinpath('data')
@@ -24,10 +23,13 @@ def main(root_path='html', version='v0.0.1'):
     favicon_path = data_dir.joinpath('favicon.ico')
     lang_data = read_yml(path=str(data_dir.joinpath('lang.yml')))
     logger.debug('lang_data:{0}{1}'.format(os.linesep, lang_data))
-    df_wl = pd.read_csv(
-        str(data_dir.joinpath('whitelist.csv')), index_col='site'
-    )
-    logger.debug('df_wl:{0}{1}'.format(os.linesep, df_wl))
+    wl_dict = {
+        k: v[v.astype(bool)].index.str.replace(' ', '').to_list()
+        for k, v in pd.read_csv(
+            str(data_dir.joinpath('whitelist.csv')), index_col='site'
+        ).items()
+    }
+    logger.debug('wl_dict:{0}{1}'.format(os.linesep, wl_dict))
 
     if not root_dir.is_dir():
         print_log('Make a directory:\t{}'.format(root_dir))
@@ -45,14 +47,9 @@ def main(root_path='html', version='v0.0.1'):
     )
     for s in ['en', 'ja']:
         render_html(
-            template_name='lang_index.html.j2',
+            template_name='main.html.j2',
             template_dir_path=str(template_dir),
-            data={
-                'site_array_string': str(
-                    df_wl.pipe(lambda d: d[d[s].astype(bool)].index.tolist())
-                ),
-                **lang_data[s]
-            },
+            data={'site_dict_string': str(wl_dict), **lang_data[s]},
             output_path=str(root_dir.joinpath(s).joinpath('index.html'))
         )
 

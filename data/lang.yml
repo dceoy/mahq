@@ -5,7 +5,7 @@ en:
   description: Web Search Form for Medical and Healthcare Queries
   author: Daichi Narushima
   keywords: medicine,healthcare,search
-  search_placeholder: Search for...
+  search_placeholder: Enter a search word...
   search_button: SEARCH
   about_h2: About Mahq
   about_p:
@@ -13,25 +13,25 @@ en:
     - The search domains are managed by whitelist.
   developer_h2: Developer
   developer_p:
-    - <a href="//dceoy.github.io/">Daichi Narushima, Ph.D.</a>
+    - Daichi Narushima, Ph.D.
   license_h2: License
   license_p:
     - The source code of Mahq is licensed under <a href="//github.com/dceoy/mahq/blob/master/LICENSE">GNU General Public License v3.0</a>.
 ja:
   lang: ja
-  short_description: 医療・健康情報 Web 検索
+  short_description: 医療情報 Web 検索
   description: 医薬学・医療・健康情報 Web 検索フォーム
   author: Daichi Narushima
   keywords: 医学,薬学,用語,検索
-  search_placeholder: 用語を入力...
+  search_placeholder: 検索する単語を入力...
   search_button: 検索
   about_h2: Mahq について
   about_p:
-    - Mahq は Google を用いて医療・健康に関する信頼性の高い情報を得るための web 検索フォームです.
+    - Mahq は Google を用いて医薬学・医療・健康に関する信頼性の高い情報を得るための web 検索フォームです.
     - 検索対象ドメインはホワイトリストで管理されています.
   developer_h2: 開発者
   developer_p:
-    - <a href="//dceoy.github.io/">成島 大智, Ph.D.</a>
+    - 成島 大智, 博士 (薬科学)
   license_h2: ライセンス
   license_p:
     - Mahq のソースコードは <a href="//github.com/dceoy/mahq/blob/master/LICENSE">GNU General Public License v3.0</a> の下で公開されています.

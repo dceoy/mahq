@@ -8,6 +8,5 @@ Build
 
 ```sh
 $ pip install -U jinja2 pandas yaml
-$ mkdir html
-$ python build_mahq.py
+$ python build.py
 ```
