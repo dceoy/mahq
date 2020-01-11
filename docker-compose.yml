@@ -5,7 +5,17 @@ services:
   nginx-autoindex:
     container_name: nginx-autoindex
     image: dceoy/nginx-autoindex:latest
+    depends_on:
+      - html-builder
     ports:
       - 80:80
     volumes:
       - ${PWD}/html:/var/lib/nginx/html:ro
+  html-builder:
+    container_name: html-builder
+    image: dceoy/jupyter:latest
+    volumes:
+      - ${PWD}:/wd
+    working_dir: /wd
+    entrypoint:
+      - /wd/build.py
