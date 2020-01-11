@@ -2,7 +2,6 @@
 
 import argparse
 import logging
-import os
 import shutil
 from pathlib import Path
 
@@ -15,21 +14,21 @@ def main(root_path='html', version='v0.0.1'):
     args = parse_options(version=version)
     set_log_config(args=args)
     logger = logging.getLogger(__name__)
-    logger.debug('args:{0}{1}'.format(os.linesep, vars(args)))
+    logger.debug('args:\t{}'.format(vars(args)))
 
     root_dir = Path(root_path)
     data_dir = Path(__file__).parent.joinpath('data')
     template_dir = Path(__file__).parent.joinpath('template')
     favicon_path = data_dir.joinpath('favicon.ico')
     lang_data = read_yml(path=str(data_dir.joinpath('lang.yml')))
-    logger.debug('lang_data:{0}{1}'.format(os.linesep, lang_data))
+    logger.debug('lang_data:\t{}'.format(lang_data))
     wl_dict = {
         k: v[v.astype(bool)].index.str.replace(' ', '').to_list()
         for k, v in pd.read_csv(
             str(data_dir.joinpath('whitelist.csv')), index_col='site'
         ).items()
     }
-    logger.debug('wl_dict:{0}{1}'.format(os.linesep, wl_dict))
+    logger.debug('wl_dict:\t{}'.format(wl_dict))
 
     if not root_dir.is_dir():
         print_log('Make a directory:\t{}'.format(root_dir))
@@ -56,12 +55,11 @@ def main(root_path='html', version='v0.0.1'):
 
 def parse_options(version):
     parser = argparse.ArgumentParser(
-        prog=Path(__file__).name, description='mahq HTML document builder'
+        prog=Path(__file__).name, description='mahq HTML build script'
     )
     parser.add_argument(
         '--version', action='version', version='%(prog)s {}'.format(version)
     )
-    parser.add_mutually_exclusive_group()
     parser.add_argument(
         '--debug', dest='debug', action='store_true',
         help='Log with DEBUG level'
