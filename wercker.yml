@@ -5,6 +5,16 @@ box:
 deploy:
   steps:
     - script:
+        name: Install Git
+        code: |
+          apt-get -y update
+          apt-get -y install --no-install-recommends --no-install-suggests git
+    - script:
+        name: Set git configs
+        code: |
+          git config --global user.email 'dnarsil+github@gmail.com'
+          git config --global user.name 'dceoy'
+    - script:
         name: Build HTML documents
         code: |
           ./build.py
@@ -13,11 +23,6 @@ deploy:
         code: |
           ./deploy.sh --remote=https://$GITHUB_TOKEN@github.com/dceoy/mahq.git
   after-steps:
-    - script:
-        name: Install curl
-        code: |
-          apt-get -y update
-          apt-get -y install --no-install-recommends --no-install-suggests curl
     - slack-notifier:
         url: $SLACK_URL
         channel: $SLACK_CHANNEL
