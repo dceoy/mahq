@@ -1,0 +1,23 @@
+---
+box:
+  id: dceoy/jupyter:latest
+  entrypoint: /bin/bash -c
+deploy:
+  steps:
+    - script:
+        name: Build HTML documents
+        code: |
+          ./build.py
+    - script:
+        name: Deploy HTML documents on GitHub Pages
+        code: |
+          ./deploy.sh --remote=https://$GITHUB_TOKEN@github.com/dceoy/mahq.git
+  after-steps:
+    - script:
+        name: Install curl
+        code: |
+          apt-get -y update
+          apt-get -y install --no-install-recommends --no-install-suggests curl
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: $SLACK_CHANNEL

@@ -3,12 +3,13 @@
 # GitHub Pages Deploy Script
 #
 # Usage:
-#   deploy.sh [--debug] [<arg>]
+#   deploy.sh [--debug] [--remote=<url>] [<arg>]
 #   deploy.sh --version
 #   deploy.sh -h|--help
 #
 # Options:
 #   --debug           Debug mode
+#   --remote=<url>    Specify a remote repository URL
 #   --version         Print version
 #   -h, --help        Print usage
 #
@@ -28,11 +29,7 @@ SCRIPT_NAME=$(basename "${SCRIPT_PATH}")
 SCRIPT_DIR_PATH=$(dirname "${SCRIPT_PATH}")
 SCRIPT_VERSION='v0.0.1'
 GH_PAGES_BRANCH='gh-pages'
-GH_REMOTE_URL=$(
-  grep -2 -e '\[remote "origin"\]' "${SCRIPT_DIR_PATH}/.git/config" \
-    | grep -e 'url =' \
-    | awk '{print $3}'
-)
+GH_REMOTE_URL=''
 HTML_DIR_PATH='./html'
 MAIN_ARGS=()
 
@@ -61,6 +58,12 @@ while [[ ${#} -ge 1 ]]; do
     '--debug' )
       shift 1
       ;;
+    '--remote' )
+      GH_REMOTE_URL="${2}" && shift 2
+      ;;
+    --remote=* )
+      GH_REMOTE_URL="${1#*\=}" && shift 1
+      ;;
     '--version' )
       print_version && exit 0
       ;;
@@ -75,6 +78,14 @@ while [[ ${#} -ge 1 ]]; do
       ;;
   esac
 done
+
+if [[ -z "${GH_REMOTE_URL}" ]]; then
+  GH_REMOTE_URL=$(
+    grep -2 -e '\[remote "origin"\]' "${SCRIPT_DIR_PATH}/.git/config" \
+      | grep -e 'url =' \
+      | awk '{print $3}'
+  )
+fi
 
 if [[ ${#MAIN_ARGS[@]} -gt 1 ]]; then
   abort "$(print_usage)"
