@@ -21,5 +21,5 @@ Deployment
 Deploy HTML documents on GitHub Pages
 
 ```sh
-$ ./deploy.sh
+$ ./gh_deploy.sh
 ```

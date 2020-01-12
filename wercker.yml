@@ -21,7 +21,7 @@ deploy:
     - script:
         name: Deploy HTML documents on GitHub Pages
         code: |
-          ./deploy.sh --remote=https://$GITHUB_TOKEN@github.com/dceoy/mahq.git
+          ./gh_deploy.sh --remote=https://$GITHUB_TOKEN@github.com/dceoy/mahq.git
   after-steps:
     - slack-notifier:
         url: $SLACK_URL

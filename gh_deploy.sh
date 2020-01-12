@@ -3,9 +3,9 @@
 # GitHub Pages Deploy Script
 #
 # Usage:
-#   deploy.sh [--debug] [--remote=<url>] [<arg>]
-#   deploy.sh --version
-#   deploy.sh -h|--help
+#   gh_deploy.sh [--debug] [--remote=<url>] [<arg>]
+#   gh_deploy.sh --version
+#   gh_deploy.sh -h|--help
 #
 # Options:
 #   --debug           Debug mode
