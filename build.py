@@ -64,11 +64,11 @@ def parse_options(version):
     )
     parser.add_argument(
         '--debug', dest='debug', action='store_true',
-        help='Log with DEBUG level'
+        help='log with DEBUG level'
     )
     parser.add_argument(
         '--info', dest='info', action='store_true',
-        help='Log with INFO level'
+        help='log with INFO level'
     )
     return parser.parse_args()
 
