@@ -15,6 +15,7 @@ site,en,ja
 .or.jp,1,1
 .gr.jp,1,1
 .org.uk,1,0
+.lg.jp,0,1
 msdmanuals.com,1,1
 scholar.google.com,1,1
 freebooks4doctors.com,1,0
@@ -36,7 +37,6 @@ jsrm.jp,0,1
 data-portal.jp,0,1
 riken.jp,0,1
 biosciencedbc.jp,0,1
-dbcls.jp,0,1
 midb.jp,0,1
 ganjoho.jp,0,1
 umin.jp,0,1
@@ -48,9 +48,11 @@ neuroinf.jp,0,1
 jsm-db.info,0,1
 nejm.jp,0,1
 natureasia.com,0,1
+jsph.jp,0,1
 carenet.com,0,1
 takeda-kenko.jp,0,1
-nk.jiho.jp,0,1
+dbcls.jp,0,0
+nk.jiho.jp,0,0
 medical.nikkeibp.co.jp,0,0
 websurg.com,0,0
 yakuji.co.jp,0,0
