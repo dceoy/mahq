@@ -37,7 +37,6 @@ jsrm.jp,0,1
 data-portal.jp,0,1
 riken.jp,0,1
 biosciencedbc.jp,0,1
-midb.jp,0,1
 ganjoho.jp,0,1
 umin.jp,0,1
 clinicaltrials.jp,0,1
@@ -51,9 +50,10 @@ natureasia.com,0,1
 jsph.jp,0,1
 carenet.com,0,1
 takeda-kenko.jp,0,1
-dbcls.jp,0,0
+dbcls.jp,0,1
 nk.jiho.jp,0,0
 medical.nikkeibp.co.jp,0,0
+midb.jp,0,0
 websurg.com,0,0
 yakuji.co.jp,0,0
 pathologycenter.jp,0,0
