@@ -17,7 +17,7 @@ en:
     - Daichi Narushima, Ph.D.
   license_h2: License
   license_p:
-    - The source code of Mahq is licensed under <a href="//github.com/dceoy/mahq/blob/master/LICENSE">GNU General Public License v3.0</a>.
+    - The source code of Mahq is licensed under <a href="//github.com/dceoy/mahq/blob/master/LICENSE">GPLv3</a>.
 ja:
   lang: ja
   short_description: 医療・健康情報 web 検索
@@ -36,4 +36,4 @@ ja:
     - 成島 大智, 博士 (薬科学)
   license_h2: ライセンス
   license_p:
-    - Mahq のソースコードは <a href="//github.com/dceoy/mahq/blob/master/LICENSE">GNU General Public License v3.0</a> の下で公開されています.
+    - Mahq のソースコードは <a href="//github.com/dceoy/mahq/blob/master/LICENSE">GPLv3</a> の下で公開されています.
