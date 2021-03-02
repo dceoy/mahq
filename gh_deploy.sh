@@ -3,7 +3,7 @@
 # GitHub Pages Deploy Script
 #
 # Usage:
-#   gh_deploy.sh [--debug] [--remote=<url>] [<arg>]
+#   gh_deploy.sh [--debug] [--remote=<url>] [<dir>]
 #   gh_deploy.sh --version
 #   gh_deploy.sh -h|--help
 #
@@ -14,7 +14,7 @@
 #   -h, --help        Print usage
 #
 # Arguments:
-#   <arg>             Main arguments
+#   <dir>             Path to an HTML directory
 
 set -ue
 
