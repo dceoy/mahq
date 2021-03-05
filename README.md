@@ -1,25 +1,14 @@
 Mahq
 ====
 
-[Web Search Form for Medical and Healthcare Queries](https://dceoy.github.io/mahq/)
-
-[![wercker status](https://app.wercker.com/status/eccf116fb1db4edbd2a14d51d56841ab/m/master "wercker status")](https://app.wercker.com/project/byKey/eccf116fb1db4edbd2a14d51d56841ab)
+[Web Search Form for Medical and Healthcare Queries](https://mahq.pages.dev/)
 
 Build
 -----
 
-Build HTML documents
+Build HTML documents into `./html/`.
 
 ```sh
 $ pip install -U jinja2 pandas pyyaml
 $ ./build.py
-```
-
-Deployment
-----------
-
-Deploy HTML documents on GitHub Pages
-
-```sh
-$ ./gh_deploy.sh
 ```
