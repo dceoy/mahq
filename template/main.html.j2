@@ -80,7 +80,7 @@
         });
         $('form').on('submit', function() {
           let $input_q = $(this).find('input[name="q"]');
-          const query = $input_q.text();
+          const query = $input_q.val();
           if (! query) {
           } else
           if (query && ! query.includes('site:')) {
